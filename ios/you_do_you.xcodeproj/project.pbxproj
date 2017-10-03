@@ -32,6 +32,8 @@
 		1E7BB1001F83F9420068C6C6 /* GoogleToolboxForMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB0FD1F83F9410068C6C6 /* GoogleToolboxForMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E7BB1011F83F9420068C6C6 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB0FE1F83F9420068C6C6 /* nanopb.framework */; };
 		1E7BB1021F83F9420068C6C6 /* nanopb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB0FE1F83F9420068C6C6 /* nanopb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E7BB1061F83F9840068C6C6 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB1041F83F9740068C6C6 /* FirebaseMessaging.framework */; };
+		1E7BB1071F83F9950068C6C6 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB1051F83F9750068C6C6 /* Protobuf.framework */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -301,6 +303,8 @@
 		1E7BB0F61F83F90F0068C6C6 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
 		1E7BB0FD1F83F9410068C6C6 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
 		1E7BB0FE1F83F9420068C6C6 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		1E7BB1041F83F9740068C6C6 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = "<group>"; };
+		1E7BB1051F83F9750068C6C6 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* you_do_you-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "you_do_you-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* you_do_you-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "you_do_you-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E7BB1071F83F9950068C6C6 /* Protobuf.framework in Frameworks */,
+				1E7BB1061F83F9840068C6C6 /* FirebaseMessaging.framework in Frameworks */,
 				1E7BB0F81F83F9330068C6C6 /* FirebaseAnalytics.framework in Frameworks */,
 				1E7BB0F91F83F9330068C6C6 /* FirebaseCore.framework in Frameworks */,
 				1E7BB1011F83F9420068C6C6 /* nanopb.framework in Frameworks */,
@@ -534,6 +540,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				1E7BB1041F83F9740068C6C6 /* FirebaseMessaging.framework */,
+				1E7BB1051F83F9750068C6C6 /* Protobuf.framework */,
 				1E7BB0FD1F83F9410068C6C6 /* GoogleToolboxForMac.framework */,
 				1E7BB0FE1F83F9420068C6C6 /* nanopb.framework */,
 				1E7BB0F21F83F90E0068C6C6 /* FirebaseAnalytics.framework */,
