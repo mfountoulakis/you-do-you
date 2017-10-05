@@ -465,6 +465,8 @@
 				1E7BB0EF1F83F8620068C6C6 /* you_do_you.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				1E7BB1081F83F9B00068C6C6 /* Firebase.h */,
+				1E7BB1091F83F9BE0068C6C6 /* module.modulemap */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				1E7BB0ED1F83F81C0068C6C6 /* GoogleService-Info.plist */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -578,8 +580,6 @@
 			children = (
 				1EFC6ED11F86C23F00A37DBF /* FirebaseMessaging.framework */,
 				1EFC6ED21F86C23F00A37DBF /* Protobuf.framework */,
-				1E7BB1081F83F9B00068C6C6 /* Firebase.h */,
-				1E7BB1091F83F9BE0068C6C6 /* module.modulemap */,
 				1EFC6ECC1F86C22B00A37DBF /* FirebaseAnalytics.framework */,
 				1EFC6ED01F86C22D00A37DBF /* FirebaseCore.framework */,
 				1EFC6ECE1F86C22C00A37DBF /* FirebaseCoreDiagnostics.framework */,

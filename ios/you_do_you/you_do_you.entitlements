@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)org.reactjs.native.example.you-do-you</string>
+		<string>$(AppIdentifierPrefix)com.reactjs.youdoyou</string>
 	</array>
 </dict>
 </plist>
