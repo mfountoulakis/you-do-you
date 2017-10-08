@@ -6,6 +6,12 @@
  */
 
 import React, { Component } from 'react';
+import { Provider, connect } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import { fetchMessages } from './actions';
+
 import {
   StyleSheet,
   Text,
@@ -15,8 +21,20 @@ import {
 } from 'react-native';
 
 import FCM from "react-native-fcm";
-
 import PushController from "./PushController";
+import logger from 'redux-logger'
+import rootReducer from './reducers';
+
+
+const loggerMiddleware = createLogger();
+
+const store = createStore(
+    rootReducer,
+    applyMiddleware(
+        thunkMiddleware,
+        loggerMiddleware
+    )
+);
 
 export default class App extends Component {
   constructor(props) {
@@ -27,8 +45,11 @@ export default class App extends Component {
       tokenCopyFeedback: ""
     }
   }
+  
 
-  componentDidMount(){
+  componentDidMount() {
+    store.dispatch(fetchMessages());
+    
     FCM.getInitialNotification().then(notif => {
       this.setState({
         initNotif: notif
@@ -53,7 +74,7 @@ export default class App extends Component {
   scheduleLocalNotification() {
     FCM.scheduleLocalNotification({
       id: 'testnotif',
-      fire_date: new Date().getTime()+5000,
+      fire_date: new Date().getTime() + 5000,
       vibrate: 500,
       title: 'Hello',
       body: 'Test Scheduled Notification',
@@ -69,55 +90,23 @@ export default class App extends Component {
     let { token, tokenCopyFeedback } = this.state;
 
     return (
-      <View style={styles.container}>
-        <PushController
-          onChangeToken={token => this.setState({token: token || ""})}
-        />
-        <Text style={styles.welcome}>
-          Welcome to Simple Fcm Client!
-        </Text>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <PushController
+            onChangeToken={token => this.setState({ token: token || "" })}
+          />
+        </View>
+      </Provider>
 
-        <Text>
-          Init notif: {JSON.stringify(this.state.initNotif)}
-
-        </Text>
-
-        <Text selectable={true} onPress={() => this.setClipboardContent(this.state.token)} style={styles.instructions}>
-          Token: {this.state.token}
-        </Text>
-
-        <Text style={styles.feedback}>
-          {this.state.tokenCopyFeedback}
-        </Text>
-
-        <Text style={styles.feedback}>
-          Remote notif won't be available to iOS emulators
-        </Text>
-        <TouchableOpacity onPress={() => firebaseClient.sendNotification(token)} style={styles.button}>
-          <Text style={styles.buttonText}>Send Notification</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => firebaseClient.sendData(token)} style={styles.button}>
-          <Text style={styles.buttonText}>Send Data</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => firebaseClient.sendNotificationWithData(token)} style={styles.button}>
-          <Text style={styles.buttonText}>Send Notification With Data</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.showLocalNotification()} style={styles.button}>
-          <Text style={styles.buttonText}>Send Local Notification</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.scheduleLocalNotification()} style={styles.button}>
-          <Text style={styles.buttonText}>Schedule Notification in 5s</Text>
-        </TouchableOpacity>
-      </View>
     );
   }
   setClipboardContent(text) {
     Clipboard.setString(text);
-    this.setState({tokenCopyFeedback: "Token copied to clipboard."});
-    setTimeout(() => {this.clearTokenCopyFeedback()}, 2000);
+    this.setState({ tokenCopyFeedback: "Token copied to clipboard." });
+    setTimeout(() => { this.clearTokenCopyFeedback() }, 2000);
   }
   clearTokenCopyFeedback() {
-    this.setState({tokenCopyFeedback: ""});
+    this.setState({ tokenCopyFeedback: "" });
   }
 }
 const styles = StyleSheet.create({

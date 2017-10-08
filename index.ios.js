@@ -12,7 +12,8 @@ import {
   View
 } from 'react-native';
 
-import App from "./app/App";
+
+import App from "./app/src/App";
 
 export default class you_do_you extends Component {
   render() {
