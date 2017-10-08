@@ -24,6 +24,7 @@ import FCM from "react-native-fcm";
 import PushController from "./PushController";
 import logger from 'redux-logger'
 import rootReducer from './reducers';
+import AffirmationList from './containers/Affirmations'
 
 
 const loggerMiddleware = createLogger();
@@ -48,8 +49,7 @@ export default class App extends Component {
   
 
   componentDidMount() {
-    store.dispatch(fetchMessages());
-    
+    store.dispatch(fetchMessages()); 
     FCM.getInitialNotification().then(notif => {
       this.setState({
         initNotif: notif
@@ -95,6 +95,8 @@ export default class App extends Component {
           <PushController
             onChangeToken={token => this.setState({ token: token || "" })}
           />
+          <AffirmationList />
+
         </View>
       </Provider>
 
