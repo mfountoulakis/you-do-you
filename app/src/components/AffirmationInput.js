@@ -23,7 +23,7 @@ class AffirmationInput extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Input style={styles.input} placeholder="Say Something Nice" submitAction={this.sendMessage} />
+                <TextInput style={styles.input} placeholder="Say Something Nice" submitAction={this.sendMessage} />
                 < Affirmations />
             </View>
         )
