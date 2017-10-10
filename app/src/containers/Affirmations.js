@@ -28,10 +28,14 @@ const Affirmations = connect(
             </View>
         )
     } else {
-        return <AffirmationList affirmations={affirmations} />
+        return <AffirmationList style={ styles.container } affirmations={affirmations} />
     }
     
 });
+
+// const styles = StyleSheet.create({
+
+// })
 
 export default Affirmations;
 
