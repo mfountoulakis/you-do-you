@@ -23,34 +23,31 @@ class AffirmationItem extends Component {
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
-            <Container style={ styles.container }>
-                <Header />
-                <Content>
-                    <List style={styles.affirmationList}
-                        dataSource={this.ds.cloneWithRows(this.state.listViewData)}
-                        renderRow={data =>
-                            <ListItem >
-                                <Text> {data.affirmation} </Text>
-                            </ListItem>}
-                        renderLeftHiddenRow={data =>
-                            <Button full onPress={() => alert(data)}>
-                                <Icon active name="information-circle" />
-                            </Button>}
-                        renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-                            <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
-                                <Icon active name="trash" />
-                            </Button>}
-                        leftOpenValue={75}
-                        rightOpenValue={-75}
-                    />
-                </Content>
+            <Container style={styles.container}>
+                <List style={styles.affirmationList}
+                    dataSource={this.ds.cloneWithRows(this.state.listViewData)}
+                    renderRow={data =>
+                        <ListItem >
+                            <Text> {data.affirmation} </Text>
+                        </ListItem>}
+                    renderLeftHiddenRow={data =>
+                        <Button full onPress={() => alert(data)}>
+                            <Icon active name="information-circle" />
+                        </Button>}
+                    renderRightHiddenRow={(data, secId, rowId, rowMap) =>
+                        <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
+                            <Icon active name="trash" />
+                        </Button>}
+                    leftOpenValue={75}
+                    rightOpenValue={-75}
+                />
             </Container>
         );
     }
 }
 
-// const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 
-// });
+});
 
 module.exports = AffirmationItem;

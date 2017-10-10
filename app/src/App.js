@@ -24,7 +24,8 @@ import FCM from "react-native-fcm";
 import PushController from "./PushController";
 import logger from 'redux-logger'
 import rootReducer from './reducers';
-import AffirmationList from './containers/Affirmations'
+// import Affirmations from './containers/Affirmations';
+import AffirmationInput from './components/AffirmationInput';
 
 
 const loggerMiddleware = createLogger();
@@ -95,20 +96,12 @@ export default class App extends Component {
           <PushController
             onChangeToken={token => this.setState({ token: token || "" })}
           />
-          <AffirmationList />
+          <AffirmationInput />
 
         </View>
       </Provider>
 
     );
-  }
-  setClipboardContent(text) {
-    Clipboard.setString(text);
-    this.setState({ tokenCopyFeedback: "Token copied to clipboard." });
-    setTimeout(() => { this.clearTokenCopyFeedback() }, 2000);
-  }
-  clearTokenCopyFeedback() {
-    this.setState({ tokenCopyFeedback: "" });
   }
 }
 const styles = StyleSheet.create({
