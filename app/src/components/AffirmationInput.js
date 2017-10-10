@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input, List } from 'native-base';
+import { Input } from 'native-base';
 
 import {
     StyleSheet,
@@ -10,8 +10,8 @@ import {
     Clipboard
 } from 'react-native';
 
-import { Input } from 'native-base';
-
+// import { Input } from 'native-base';
+import TextInput from '../containers/TextInput'
 import Affirmations from '../containers/Affirmations'
 
 class AffirmationInput extends Component {
