@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import affirmation from './Affirmation';
+import affirmations from './Affirmations';
 
 const initialState = {
     isFetching: false,
@@ -22,7 +22,7 @@ const meta = (state = initialState, action) => {
 }
 
 const affirmationList = combineReducers({
-    affirmation,
+    affirmations,
     meta
 });
 

@@ -10,6 +10,11 @@ export const receivedAffirmations = () => ({
     receivedAt: Date.now()
 });
 
+export const addAffirmation = (affirmation) => ({
+    type: 'ADD_AFFIRMATION',
+    affirmation
+});
+
 export const fetchMessages = () => {
     return function (dispatch) {
         dispatch(startFetchingMessages());
@@ -29,7 +34,7 @@ export const fetchMessages = () => {
 
 export const receiveAffirmations = (affirmations) => {
     return function (dispatch) {
-        // Object.values(affirmations).forEach(affirmation => dispatch(addAffirmation(affirmation)));
+        Object.values(affirmations).forEach(affirmation => dispatch(addAffirmation(affirmation)));
         dispatch(receivedAffirmations());
     }
 }

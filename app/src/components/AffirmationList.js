@@ -1,18 +1,51 @@
 import React, { Component } from 'react';
+import { Container, Header, Content, Spinner, Row, List, Button, Icon, ListItem } from 'native-base';
 
 import {
     StyleSheet,
     Text,
     TouchableOpacity,
     View,
-    Clipboard
+    Clipboard,
+    ListView,
 } from 'react-native';
 
-export default class AffirmationList extends Component {
-    render() {
+class AffirmationItem extends Component {
+    constructor(props, ) {
+        super(props);
+        this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+        
+        this.state = {
+            listViewData: props.affirmations
+        };
+    }
 
+    render() {
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
-            <Text>Affirmation List Component</Text>
+          <Container>
+            <Header />
+            <Content>
+              <List
+                dataSource={this.ds.cloneWithRows(this.state.listViewData)}
+                renderRow={data =>
+                  <ListItem>
+                    <Text> {data.affirmation} </Text>
+                  </ListItem>}
+                renderLeftHiddenRow={data =>
+                  <Button full onPress={() => alert(data)}>
+                    <Icon active name="information-circle" />
+                  </Button>}
+                renderRightHiddenRow={(data, secId, rowId, rowMap) =>
+                  <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
+                    <Icon active name="trash" />
+                  </Button>}
+                leftOpenValue={75}
+                rightOpenValue={-75}
+              />
+            </Content>
+          </Container>
         );
     }
 }
+module.exports = AffirmationItem;
