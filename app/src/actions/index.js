@@ -15,6 +15,25 @@ export const addAffirmation = (affirmation) => ({
     affirmation
 });
 
+
+export const submitAffirmation = (text) => {
+    return function (dispatch) {
+        let affirmation = {
+            affirmation: text,
+            time: Date.now()
+        }
+
+        const AffirmationsRef = firebase.database()
+                                        .ref('affirmations')
+                                        .push();
+
+        affirmation.id = AffirmationsRef.key;
+        AffirmationsRef.set(affirmation);
+
+        dispatch(addAffirmation(affirmation));
+    }
+}
+
 export const fetchMessages = () => {
     return function (dispatch) {
         dispatch(startFetchingMessages());
@@ -35,6 +54,7 @@ export const fetchMessages = () => {
 export const receiveAffirmations = (affirmations) => {
     return function (dispatch) {
         Object.values(affirmations).forEach(affirmation => dispatch(addAffirmation(affirmation)));
+   
         dispatch(receivedAffirmations());
     }
 }

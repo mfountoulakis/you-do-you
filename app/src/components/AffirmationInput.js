@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Input } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, List, Input } from 'native-base';
 
 import {
     StyleSheet,
@@ -13,17 +13,21 @@ import {
 // import { Input } from 'native-base';
 import TextInput from '../containers/TextInput'
 import Affirmations from '../containers/Affirmations'
+import { submitAffirmation } from '../actions';
 
 class AffirmationInput extends Component {
 
-    sendMessage() {
-        alert('hi');
+    submitAffirmation = (text) => {
+      return submitAffirmation(text)
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="Say Something Nice" submitAction={this.sendMessage} />
+                <TextInput style={styles.input}
+                    placeholder="Say Something Nice"
+                    submitAction={this.submitAffirmation}
+                />
                 < Affirmations />
             </View>
         )
@@ -32,11 +36,8 @@ class AffirmationInput extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 4,
-        height: 10
-    },
-    input: {
+        flex: 1
     }
-})
+});
 
 export default AffirmationInput;

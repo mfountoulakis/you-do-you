@@ -13,22 +13,33 @@ import {
 class AffirmationItem extends Component {
     constructor(props, ) {
         super(props);
-        this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+        const dataSource = new ListView.DataSource({
+            rowHasChanged: (row1, row2) => row1 !== row2,
+        });
 
         this.state = {
-            listViewData: props.affirmations
+            basic: true,
+            dataSource: dataSource.cloneWithRows(props.affirmations)
         };
+        refreshing: false
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(nextProps.affirmations)
+        });
     }
 
     render() {
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+
         return (
             <Container style={styles.container}>
+                <Text> {this.state.dataSource.length}</Text>
                 <List style={styles.affirmationList}
-                    dataSource={this.ds.cloneWithRows(this.state.listViewData)}
+                    dataSource={this.state.dataSource}
                     renderRow={data =>
                         <ListItem >
-                            <Text> {data.affirmation} </Text>
+                            <Text> {data.affirmation.affirmation} </Text>
                         </ListItem>}
                     renderLeftHiddenRow={data =>
                         <Button full onPress={() => alert(data)}>
@@ -40,6 +51,7 @@ class AffirmationItem extends Component {
                         </Button>}
                     leftOpenValue={75}
                     rightOpenValue={-75}
+
                 />
             </Container>
         );

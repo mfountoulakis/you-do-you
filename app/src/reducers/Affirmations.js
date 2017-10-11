@@ -3,9 +3,11 @@ import firebase from '../firebase';
 const affirmation = (state, action) => {
     switch (action.type) {
         case 'ADD_AFFIRMATION':
-            console.log("ACTION.AFFIRMATIOM ", action.affirmation, state);
+        
             return {
-                affirmation: action.affirmation
+                id: action.affirmation.id,
+                affirmation: action.affirmation,
+                time: action.affirmation.time
             }
         default:
             return state
@@ -15,14 +17,20 @@ const affirmation = (state, action) => {
 const affirmations = (state = [], action) => {
     switch (action.type) {
         case 'ADD_AFFIRMATION':
-            if (state.map(m => m.affirmation).includes(action.affirmation)) {
+            // check for duplicate AffirmationItems
+            if (state.map(m => m.id).includes(action.affirmation.id)) {
                 return state;
             } else {
                 return [
-                ...state,
-                affirmation(undefined, action)
+                    ...state,
+                    affirmation(undefined, action)
                 ]
             }
+        case 'SUBMIT_AFFIRMATION':
+            return [
+                ...state,
+                affirmation(undefined, action)
+            ]
 
         default:
             return state
