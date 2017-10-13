@@ -20,7 +20,7 @@ class TextInput extends Component {
     onChangeText = text => this.setState({ text: text });
 
     onSubmitEditing = () => {
-        console.log("submit text state ", this.state.text)
+        // console.log("submit text state ", this.state.text)
         this.props.dispatch(
             this.props.submitAction(this.state.text)
         );
@@ -31,7 +31,19 @@ class TextInput extends Component {
         }
     }
 
+
     render() {
+
+        const submitButton = (
+            <Button block style = { styles.submitButton } bordered warning onPress={() => this.onSubmitEditing()}>
+                <Text>Warning</Text>
+            </Button>
+        )
+
+        const disabledSubmit = (
+            <Button block style = { styles.submitButton } disabled><Text>Disabled</Text></Button>
+        )
+
         return (
             <View style={styles.container}>
                 <Input
@@ -39,10 +51,7 @@ class TextInput extends Component {
                     onChangeText={this.onChangeText}
                     value={this.state.text}
                 />
-
-                <Button bordered warning onPress={() => this.onSubmitEditing()}>
-                    <Text>Warning</Text>
-                </Button>
+                {this.state.text ? submitButton : disabledSubmit}
             </View>
         )
     }

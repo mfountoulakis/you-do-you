@@ -38,11 +38,7 @@ class AffirmationList extends Component {
         this.props.dispatch(
             removeAffirmation(data)
         );
-
         rowMap[`${secId}${rowId}`].props.closeRow();
-        const newData = [this.state.dataSource];
-        newData.splice(rowId, 1);
-        this.setState({ dataSource: newData });
     }
 
     
@@ -59,8 +55,8 @@ class AffirmationList extends Component {
     render() {
 
         return (
-            <Container style={styles.container}>
-                <Text> {this.state.dataSource.length}</Text>
+            <Container>
+                <Content>
                 <List style={styles.affirmationList}
                     dataSource={this.state.dataSource}
                     renderRow={this._renderAffirmation.bind(this)}
@@ -74,8 +70,10 @@ class AffirmationList extends Component {
                         </Button>}
                     leftOpenValue={75}
                     rightOpenValue={-75}
+                    enableEmptySections={true}
 
                 />
+                </Content>
             </Container>
 
         );

@@ -19,25 +19,30 @@ import { submitAffirmation } from '../actions';
 class AffirmationInput extends Component {
 
     submitAffirmation = (text) => {
-      return submitAffirmation(text)
+        return submitAffirmation(text)
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                <TextInput style={styles.input}
-                    placeholder="Say Something Nice"
-                    submitAction={this.submitAffirmation}
-                />
-                < Affirmations />
-            </View>
+            <Container>
+                <Content>
+                    <View style={styles.container}>
+                        <TextInput style={styles.input}
+                            placeholder="Say Something Nice"
+                            submitAction={this.submitAffirmation}
+                        />
+                        < Affirmations />
+                    </View>
+                </ Content>
+            </Container>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        padding: 15
     }
 });
 
