@@ -35,8 +35,8 @@ class TextInput extends Component {
     render() {
 
         const submitButton = (
-            <Button block style = { styles.submitButton } bordered warning onPress={() => this.onSubmitEditing()}>
-                <Text>Warning</Text>
+            <Button bordered light block style = { styles.submitButton } onPress={() => this.onSubmitEditing()}>
+                <Text>Submit</Text>
             </Button>
         )
 

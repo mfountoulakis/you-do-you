@@ -30,7 +30,6 @@ class AffirmationInput extends Component {
                 <Content>
                     <View>
                     <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']} style={styles.linearGradient}>
-
                         <TextInput style={styles.input}
                             placeholder="Say Something Nice"
                             submitAction={this.submitAffirmation}
