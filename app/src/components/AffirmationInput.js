@@ -9,6 +9,7 @@ import {
     View,
     Clipboard
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 // import { Input } from 'native-base';
 import TextInput from '../containers/TextInput'
@@ -24,14 +25,18 @@ class AffirmationInput extends Component {
 
     render() {
         return (
+            
             <Container>
                 <Content>
-                    <View style={styles.container}>
+                    <View>
+                    <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']} style={styles.linearGradient}>
+
                         <TextInput style={styles.input}
                             placeholder="Say Something Nice"
                             submitAction={this.submitAffirmation}
                         />
                         < Affirmations />
+                        </LinearGradient>
                     </View>
                 </ Content>
             </Container>

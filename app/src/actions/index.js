@@ -39,7 +39,6 @@ export const removeAffirmation = (affirmation) => {
     }
 }
 
-
 export const submitAffirmation = (text) => {
     return function (dispatch) {
         let affirmation = {
