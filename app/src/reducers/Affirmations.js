@@ -3,7 +3,6 @@ import firebase from '../firebase';
 const affirmation = (state, action) => {
     switch (action.type) {
         case 'ADD_AFFIRMATION':
-        
             return {
                 id: action.affirmation.id,
                 affirmation: action.affirmation,
@@ -12,7 +11,7 @@ const affirmation = (state, action) => {
         default:
             return state
     }
-}
+};
 
 const affirmations = (state = [], action) => {
     switch (action.type) {
@@ -31,7 +30,10 @@ const affirmations = (state = [], action) => {
                 ...state,
                 affirmation(undefined, action)
             ]
-
+        case 'REMOVE_AFFIRMATION':
+            return state.filter(affirmations => {
+                return action.affirmation.id !== action.affirmation.affirmation.id;
+            });
         default:
             return state
     }

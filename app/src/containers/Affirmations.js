@@ -32,7 +32,6 @@ const Affirmations = connect(
             <AffirmationList affirmations={affirmations} />
         )
     }
-
 });
 
 export default Affirmations;

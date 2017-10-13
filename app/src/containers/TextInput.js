@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { Input } from 'native-base';
+import { Input, Button } from 'native-base';
 
 import {
     StyleSheet,
@@ -19,11 +19,11 @@ class TextInput extends Component {
 
     onChangeText = text => this.setState({ text: text });
 
-    onSubmitEditing = () => {        
+    onSubmitEditing = () => {
+        console.log("submit text state ", this.state.text)
         this.props.dispatch(
             this.props.submitAction(this.state.text)
         );
-
         if (!this.props.noclear) {
             this.setState({
                 text: null
@@ -37,9 +37,12 @@ class TextInput extends Component {
                 <Input
                     placeholder={this.props.placeholder}
                     onChangeText={this.onChangeText}
-                    onSubmitEditing={this.onSubmitEditing}
                     value={this.state.text}
                 />
+
+                <Button bordered warning onPress={() => this.onSubmitEditing()}>
+                    <Text>Warning</Text>
+                </Button>
             </View>
         )
     }
@@ -47,7 +50,8 @@ class TextInput extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 90
+        height: 90,
+        marginTop: 40
     }
 });
 

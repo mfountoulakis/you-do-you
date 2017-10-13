@@ -13,6 +13,7 @@ import {
 // import { Input } from 'native-base';
 import TextInput from '../containers/TextInput'
 import Affirmations from '../containers/Affirmations'
+
 import { submitAffirmation } from '../actions';
 
 class AffirmationInput extends Component {

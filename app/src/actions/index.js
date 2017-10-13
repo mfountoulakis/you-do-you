@@ -15,6 +15,30 @@ export const addAffirmation = (affirmation) => ({
     affirmation
 });
 
+export const remove = (affirmation) => ({
+    type: 'REMOVE_AFFIRMATION',
+    affirmation,
+    isDeleting: true
+    
+});
+
+export const removeAffirmation = (affirmation) => {
+    return function (dispatch) {
+        dispatch(remove(affirmation));
+        const AffirmationsRef = firebase.database()
+            .ref(`affirmations/${affirmation.id}`)
+            .remove()
+            .then(snapshot => {
+                return
+
+            }, error => {
+                alert(JSON.stringify(error.message));
+            });
+
+
+    }
+}
+
 
 export const submitAffirmation = (text) => {
     return function (dispatch) {
@@ -24,8 +48,8 @@ export const submitAffirmation = (text) => {
         }
 
         const AffirmationsRef = firebase.database()
-                                        .ref('affirmations')
-                                        .push();
+            .ref('affirmations')
+            .push();
 
         affirmation.id = AffirmationsRef.key;
         AffirmationsRef.set(affirmation);
@@ -54,7 +78,7 @@ export const fetchMessages = () => {
 export const receiveAffirmations = (affirmations) => {
     return function (dispatch) {
         Object.values(affirmations).forEach(affirmation => dispatch(addAffirmation(affirmation)));
-   
+
         dispatch(receivedAffirmations());
     }
 }
