@@ -35,13 +35,13 @@ class TextInput extends Component {
     render() {
 
         const submitButton = (
-            <Button bordered light block style = { styles.submitButton } onPress={() => this.onSubmitEditing()}>
+            <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
                 <Text>Submit</Text>
             </Button>
         )
 
         const disabledSubmit = (
-            <Button block style = { styles.submitButton } disabled><Text>Disabled</Text></Button>
+            <Button block style={styles.submitButton} disabled><Text>Disabled</Text></Button>
         )
 
         return (

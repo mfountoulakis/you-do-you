@@ -34,7 +34,7 @@ class AffirmationInput extends Component {
                             placeholder="Say Something Nice"
                             submitAction={this.submitAffirmation}
                         />
-                        < Affirmations />
+                        < Affirmations style={{backgroundColor: "transparent"}} />
                         </LinearGradient>
                     </View>
                 </ Content>

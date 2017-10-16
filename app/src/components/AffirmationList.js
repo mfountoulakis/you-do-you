@@ -45,7 +45,7 @@ class AffirmationList extends Component {
 
     _renderAffirmation(data) {
         return (
-            <ListItem >
+            <ListItem style={styles.ListItem} >
                 <Text> {data.affirmation.affirmation} </Text>
             </ListItem>
         )
@@ -55,40 +55,27 @@ class AffirmationList extends Component {
 
     render() {
         return (
-            <Container>
-                <Content>
-                    <List style={styles.affirmationList}
-                        dataSource={this.state.dataSource}
-                        renderRow={this._renderAffirmation.bind(this)}
-                        renderLeftHiddenRow={data =>
-                            <Button full onPress={() => alert(data)}>
-                                <Icon active name="information-circle" />
-                            </Button>}
-                        renderRightHiddenRow={(data, secId, rowId, rowMap) =>
-                            <Button full danger onPress={_ => this.removeAffirmation(secId, rowId, rowMap, data)}>
-                                <Icon active name="trash" />
-                            </Button>}
+            <ListView
+                style={{ backgroundColor: "transparent" }}
+                dataSource={this.state.dataSource}
+                renderRow={this._renderAffirmation.bind(this)}
+                renderLeftHiddenRow={data =>
+                    <Button full onPress={() => alert(data)}>
+                        <Icon active name="information-circle" />
+                    </Button>}
 
-                        renderRight2HiddenRow={(data, secId, rowId, rowMap) =>
-                            <Button full danger onPress={_ => this.removeAffirmation(secId, rowId, rowMap, data)}>
-                                <Icon active name="trash" />
-                            </Button>}
-                        leftOpenValue={75}
-                        rightOpenValue={-75}
-                        right2OpenValue={-200}
-
-                        enableEmptySections={true}
-
-                    />
-                </Content>
-            </Container>
-
+            />
         );
     }
 }
 
 const styles = StyleSheet.create({
-
+    affirmationList: {
+        backgroundColor: "transparent"
+    },
+    ListItem: {
+        backgroundColor: "transparent"
+    }
 });
 
 export default connect()(AffirmationList);
