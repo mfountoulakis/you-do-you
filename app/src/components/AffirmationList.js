@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Header, Content, Spinner, Row, List, Button, Icon, ListItem } from 'native-base';
 import { connect } from 'react-redux';
 import { removeAffirmation } from '../actions';
+import AffirmationItem from '../containers/AffirmationItem';
 
 
 import {
@@ -45,9 +46,7 @@ class AffirmationList extends Component {
 
     _renderAffirmation(data) {
         return (
-            <ListItem style={styles.ListItem} >
-                <Text> {data.affirmation.affirmation} </Text>
-            </ListItem>
+            < AffirmationItem affirmation={data.affirmation.affirmation}/>
         )
 
     }
@@ -55,26 +54,26 @@ class AffirmationList extends Component {
 
     render() {
         return (
-            <ListView
-                style={{ backgroundColor: "transparent" }}
-                dataSource={this.state.dataSource}
-                renderRow={this._renderAffirmation.bind(this)}
-                renderLeftHiddenRow={data =>
-                    <Button full onPress={() => alert(data)}>
-                        <Icon active name="information-circle" />
-                    </Button>}
-
-            />
+            <View style={styles.container}>
+                <ListView
+                    style={styles.ListView}
+                    dataSource={this.state.dataSource}
+                    renderRow={this._renderAffirmation.bind(this)}
+                />
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    affirmationList: {
-        backgroundColor: "transparent"
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 0
     },
-    ListItem: {
-        backgroundColor: "transparent"
+    ListView:{
+        alignSelf: "stretch"
     }
 });
 

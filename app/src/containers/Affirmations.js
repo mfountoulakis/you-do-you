@@ -29,7 +29,7 @@ const Affirmations = connect(
         )
     } else {
         return (
-            <AffirmationList affirmations={affirmations} />
+            <AffirmationList affirmations={affirmations}  />
         )
     }
 });

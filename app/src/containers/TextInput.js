@@ -41,7 +41,9 @@ class TextInput extends Component {
         )
 
         const disabledSubmit = (
-            <Button block style={styles.submitButton} disabled><Text>Disabled</Text></Button>
+            <Button block style={styles.submitButton} disabled>
+                <Text>Disabled</Text>
+            </Button>
         )
 
         return (

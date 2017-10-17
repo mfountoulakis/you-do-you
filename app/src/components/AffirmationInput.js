@@ -25,18 +25,17 @@ class AffirmationInput extends Component {
 
     render() {
         return (
-            
             <Container>
                 <Content>
-                    <View>
                     <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']} style={styles.linearGradient}>
-                        <TextInput style={styles.input}
-                            placeholder="Say Something Nice"
-                            submitAction={this.submitAffirmation}
-                        />
-                        < Affirmations style={{backgroundColor: "transparent"}} />
-                        </LinearGradient>
-                    </View>
+                        <View style={styles.container}>
+                            <TextInput style={styles.input}
+                                placeholder="Say Something Nice"
+                                submitAction={this.submitAffirmation}
+                            />
+                            < Affirmations style={{ backgroundColor: "transparent" }} />
+                        </View>
+                    </LinearGradient>
                 </ Content>
             </Container>
         )
@@ -45,8 +44,7 @@ class AffirmationInput extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        padding: 15
+        flex: 1
     }
 });
 
