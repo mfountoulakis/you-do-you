@@ -31,8 +31,11 @@ const affirmations = (state = [], action) => {
                 affirmation(undefined, action)
             ]
         case 'REMOVE_AFFIRMATION':
+            console.log("action.affirmation.id ", action.affirmation.id)
+            console.log("action ", action)
+            
             return state.filter(affirmations => {
-                return action.affirmation.id !== action.affirmation.affirmation.id;
+                return action.id !== action.affirmation.id;
             });
         default:
             return state

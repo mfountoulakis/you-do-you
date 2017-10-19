@@ -15,16 +15,17 @@ export const addAffirmation = (affirmation) => ({
     affirmation
 });
 
-export const remove = (affirmation) => ({
+export const remove = (affirmation, id) => ({
     type: 'REMOVE_AFFIRMATION',
     affirmation,
+    id,
     isDeleting: true
     
 });
 
 export const removeAffirmation = (affirmation) => {
     return function (dispatch) {
-        dispatch(remove(affirmation));
+        dispatch(remove(affirmation, affirmation.id));
         const AffirmationsRef = firebase.database()
             .ref(`affirmations/${affirmation.id}`)
             .remove()

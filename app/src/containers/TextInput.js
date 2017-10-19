@@ -20,7 +20,7 @@ class TextInput extends Component {
     onChangeText = text => this.setState({ text: text });
 
     onSubmitEditing = () => {
-        // console.log("submit text state ", this.state.text)
+        console.log("Props from onsubmitediting ", this.props)
         this.props.dispatch(
             this.props.submitAction(this.state.text)
         );

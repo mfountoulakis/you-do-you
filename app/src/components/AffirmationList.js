@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Header, Content, Spinner, Row, List, Button, Icon, ListItem } from 'native-base';
 import { connect } from 'react-redux';
 import { removeAffirmation } from '../actions';
-import AffirmationItem from '../containers/AffirmationItem';
+import AffirmationItem from '../containers/AffirmationItemContainer';
 
 
 import {
@@ -36,17 +36,17 @@ class AffirmationList extends Component {
         });
     }
 
-    removeAffirmation = (secId, rowId, rowMap, data) => {
-        this.props.dispatch(
-            removeAffirmation(data)
-        );
-        rowMap[`${secId}${rowId}`].props.closeRow();
+    removeAffirmation = (affirmation) => {
+        return removeAffirmation(affirmation)
     }
 
 
     _renderAffirmation(data) {
         return (
-            < AffirmationItem affirmation={data.affirmation.affirmation}/>
+            < AffirmationItem
+                affirmation={data.affirmation}
+                removeAffirmation={this.removeAffirmation}
+            />
         )
 
     }
@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 0
     },
-    ListView:{
+    ListView: {
         alignSelf: "stretch"
     }
 });
 
-export default connect()(AffirmationList);
+export default AffirmationList;
