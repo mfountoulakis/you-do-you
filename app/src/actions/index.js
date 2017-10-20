@@ -23,6 +23,13 @@ export const remove = (affirmation, id) => ({
     
 });
 
+export const togglEditAffirmation = (affirmation, id) => ({
+    type: 'EDIT_AFFIRMATION',
+    affirmation,
+    id,
+    isEditing: true    
+});
+
 export const removeAffirmation = (affirmation) => {
     return function (dispatch) {
         dispatch(remove(affirmation, affirmation.id));

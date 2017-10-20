@@ -16,13 +16,10 @@ import {
 
 
 class AffirmationItemContainer extends Component {
-    state = {
-        isEditing: false
-    }
+    togglEditAffirmation = () => {
 
-    TogglEditAffirmation = () => {
         this.props.dispatch(
-            this.props.TogglEditAffirmation(this.props)
+            this.props.togglEditAffirmation(this.props.affirmation)
         );
     }
 
@@ -33,13 +30,18 @@ class AffirmationItemContainer extends Component {
         );
     }
 
+    // componentWillReceiveProps(nextProps){
+    //     alert('hi')
+    //     console.log("component received new props ", this.state)
+    // }
+
     render(affirmation) {
         let swipeoutBtns = [
             {
                 text: 'Edit',
                 backgroundColor: 'yellow',
                 onPress: () => {
-                    this.TogglEditAffirmation();    
+                    this.togglEditAffirmation();    
                 }
             },
 

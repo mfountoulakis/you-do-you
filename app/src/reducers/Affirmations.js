@@ -6,7 +6,8 @@ const affirmation = (state, action) => {
             return {
                 id: action.affirmation.id,
                 affirmation: action.affirmation,
-                time: action.affirmation.time
+                time: action.affirmation.time,
+                isEditing: false
             }
         default:
             return state
@@ -31,12 +32,15 @@ const affirmations = (state = [], action) => {
                 affirmation(undefined, action)
             ]
         case 'REMOVE_AFFIRMATION':
-            console.log("action.affirmation.id ", action.affirmation.id)
-            console.log("action ", action)
-            
-            return state.filter(affirmations => {
-                return action.id !== action.affirmation.id;
+            return state.filter(affirmation => {
+                return affirmation.id !== action.affirmation.id;
             });
+
+        case 'EDIT_AFFIRMATION':
+            return state.map(affirmation =>
+                affirmation.id === action.affirmation.id ?
+                    Object.assign({}, affirmation, { isEditing: action.isEditing }) : affirmation
+            )
         default:
             return state
     }

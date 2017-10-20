@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Spinner, Row, List, Button, Icon, ListItem } from 'native-base';
 import { connect } from 'react-redux';
-import { removeAffirmation } from '../actions';
+import { removeAffirmation, togglEditAffirmation } from '../actions';
 import AffirmationItem from '../containers/AffirmationItemContainer';
 
 
@@ -41,11 +41,17 @@ class AffirmationList extends Component {
     }
 
 
+    togglEditAffirmation = (affirmation) => {
+        return togglEditAffirmation(affirmation, affirmation.id)
+    }
+
+
     _renderAffirmation(data) {
         return (
             < AffirmationItem
                 affirmation={data.affirmation}
                 removeAffirmation={this.removeAffirmation}
+                togglEditAffirmation={this.togglEditAffirmation}
             />
         )
 
