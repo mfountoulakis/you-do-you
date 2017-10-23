@@ -19,7 +19,7 @@ const affirmations = (state = [], action) => {
         case 'ADD_AFFIRMATION':
             // check for duplicate AffirmationItems
             if (state.map(m => m.id).includes(action.affirmation.id)) {
-                return state;
+                return state
             } else {
                 return [
                     ...state,
@@ -39,7 +39,7 @@ const affirmations = (state = [], action) => {
         case 'EDIT_AFFIRMATION':
             return state.map(affirmation =>
                 affirmation.id === action.affirmation.id ?
-                    Object.assign({}, affirmation, { isEditing: action.isEditing }) : affirmation
+                    Object.assign({}, affirmation, { isEditing: true }) : affirmation
             )
         default:
             return state

@@ -24,24 +24,24 @@ class AffirmationItemContainer extends Component {
     }
 
     removeAffirmation = () => {
-        console.log("props from affirmationitemcontainer ",  this.props)
+        console.log("props from affirmationitemcontainer ", this.props)
         this.props.dispatch(
             this.props.removeAffirmation(this.props.affirmation)
         );
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     alert('hi')
-    //     console.log("component received new props ", this.state)
-    // }
+    componentWillReceiveProps(nextProps) {
+    }
 
     render(affirmation) {
+        const isEditing = this.props.isEditing
+        console.log(this.props.isEditing)
         let swipeoutBtns = [
             {
                 text: 'Edit',
                 backgroundColor: 'yellow',
                 onPress: () => {
-                    this.togglEditAffirmation();    
+                    this.togglEditAffirmation();
                 }
             },
 
@@ -49,7 +49,7 @@ class AffirmationItemContainer extends Component {
                 text: 'Remove',
                 backgroundColor: 'red',
                 onPress: () => {
-                    this.removeAffirmation();   
+                    this.removeAffirmation();
                 }
             },
             {
@@ -59,10 +59,20 @@ class AffirmationItemContainer extends Component {
             }
         ]
 
+        const editingComponet = (
+            <View style={{ flexDirection: 'row', flex: 1 }}>
+                <Text>EDITING . . .</Text>
+            </ View>
+        )
+
+        const ListItemComponent = (
+            <Text style={{ color: "white" }}>{this.props.affirmation.affirmation}</Text>
+        )
+
         return (
             <Swipeout autoClose={true} right={swipeoutBtns}>
                 <ListItem style={styles.ListItem}>
-                    <Text style={{ color: "black" }}>{this.props.affirmation.affirmation}</Text>
+                    {isEditing ? editingComponet : ListItemComponent}
                 </ListItem>
             </ Swipeout >
         );

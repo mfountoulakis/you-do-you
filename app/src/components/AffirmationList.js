@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Container, Header, Content, Spinner, Row, List, Button, Icon, ListItem } from 'native-base';
 import { connect } from 'react-redux';
 import { removeAffirmation, togglEditAffirmation } from '../actions';
-import AffirmationItem from '../containers/AffirmationItemContainer';
+import AffirmationItemContainer from '../containers/AffirmationItemContainer';
+import LinearGradient from 'react-native-linear-gradient';
 
 
 import {
@@ -16,7 +17,6 @@ import {
 
 
 class AffirmationList extends Component {
-
     constructor(props) {
         super(props);
         const dataSource = new ListView.DataSource({
@@ -48,7 +48,8 @@ class AffirmationList extends Component {
 
     _renderAffirmation(data) {
         return (
-            < AffirmationItem
+            < AffirmationItemContainer
+                isEditing={data.isEditing}
                 affirmation={data.affirmation}
                 removeAffirmation={this.removeAffirmation}
                 togglEditAffirmation={this.togglEditAffirmation}
@@ -61,11 +62,13 @@ class AffirmationList extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <ListView
-                    style={styles.ListView}
-                    dataSource={this.state.dataSource}
-                    renderRow={this._renderAffirmation.bind(this)}
-                />
+                <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']} style={styles.linearGradient}>
+                    <ListView
+                        style={styles.ListView}
+                        dataSource={this.state.dataSource}
+                        renderRow={this._renderAffirmation.bind(this)}
+                    />
+                </LinearGradient >
             </View>
         );
     }
@@ -74,11 +77,16 @@ class AffirmationList extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: "transparent",
+        // justifyContent: 'center',
+        // alignItems: 'center',
         margin: 0
     },
     ListView: {
+        alignSelf: "stretch",
+        backgroundColor: "transparent"
+    },
+    LinearGradient: {
         alignSelf: "stretch"
     }
 });
