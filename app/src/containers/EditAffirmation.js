@@ -21,7 +21,6 @@ import {
 
 class EditAffirmation extends Component {
     submitAffirmationUpdate = (affirmation) => {
-        console.log("AFFIRMATION ******ID ", this.props)
         return submitAffirmationUpdate(affirmation, this.props.affirmation.id)
     }
 
