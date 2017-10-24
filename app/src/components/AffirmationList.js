@@ -41,7 +41,7 @@ class AffirmationList extends Component {
     }
 
     togglEditAffirmation = (affirmation) => {
-        return togglEditAffirmation(affirmation, affirmation.id )
+        return togglEditAffirmation(affirmation, affirmation.id)
     }
 
 
@@ -61,13 +61,11 @@ class AffirmationList extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']} style={styles.linearGradient}>
-                    <ListView
-                        style={styles.ListView}
-                        dataSource={this.state.dataSource}
-                        renderRow={this._renderAffirmation.bind(this)}
-                    />
-                </LinearGradient >
+                <ListView
+                    style={styles.ListView}
+                    dataSource={this.state.dataSource}
+                    renderRow={this._renderAffirmation.bind(this)}
+                />
             </View>
         );
     }

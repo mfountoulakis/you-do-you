@@ -31,7 +31,7 @@ class AffirmationItemContainer extends Component {
         );
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         console.log("received some new props ", nextProps.isEditing)
         const isEditing = nextProps.isEditing
         this.setState({
@@ -65,9 +65,7 @@ class AffirmationItemContainer extends Component {
         ]
 
         const editingComponet = (
-            <View style={{ flexDirection: 'row', flex: 1 }}>
-                <EditAffirmation isEditing={this.props.isEditing} affirmation={this.props.affirmation}/>
-            </ View>
+            <EditAffirmation isEditing={this.props.isEditing} affirmation={this.props.affirmation} />
         )
 
         const ListItemComponent = (
@@ -75,7 +73,7 @@ class AffirmationItemContainer extends Component {
         )
 
         return (
-            <Swipeout autoClose={true} right={swipeoutBtns}>
+            <Swipeout style={styles.ListItem} autoClose={true} right={swipeoutBtns}>
                 <ListItem style={styles.ListItem}>
                     {isEditing ? editingComponet : ListItemComponent}
                 </ListItem>
