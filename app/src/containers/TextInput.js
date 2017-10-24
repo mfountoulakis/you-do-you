@@ -48,6 +48,7 @@ class TextInput extends Component {
             <View style={styles.container}>
                 <Input
                     placeholder={this.props.placeholder}
+                    placeholderTextColor="white"
                     onChangeText={this.onChangeText}
                     value={this.state.text}
                 />
@@ -59,6 +60,7 @@ class TextInput extends Component {
             <View style={styles.container}>
                 <Input
                     placeholder={this.props.placeholder}
+                    placeholderTextColor="white"
                     onChangeText={this.onChangeText}
                     value={this.state.text}
                 />

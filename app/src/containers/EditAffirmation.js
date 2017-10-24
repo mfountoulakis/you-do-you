@@ -27,12 +27,14 @@ class EditAffirmation extends Component {
 
     render() {
         return (
-            <TextInput style={styles.input}
-                isEditing ={this.props.isEditing}
-                affirmation={this.props.affirmation.affirmation}
-                placeholder={this.props.affirmation.affirmation}
-                submitAction={this.submitAffirmationUpdate}
-            />
+            <View style={styles.container}>
+                <TextInput style={styles.input}
+                    isEditing={this.props.isEditing}
+                    affirmation={this.props.affirmation.affirmation}
+                    placeholder={this.props.affirmation.affirmation}
+                    submitAction={this.submitAffirmationUpdate}
+                />
+            </View>
         )
     }
 
@@ -40,14 +42,14 @@ class EditAffirmation extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 90,
-        marginTop: 40
+        flex: 1
+        // height: 90,
+        // marginTop: 40
     },
-    ListItem: {
-        backgroundColor: "transparent",
-        marginLeft: 0
+    input: {
+        // flexDirection: 'row',
+        // marginLeft: 0
     }
 });
-
 
 export default connect()(EditAffirmation);
