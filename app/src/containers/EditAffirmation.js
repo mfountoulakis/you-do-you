@@ -24,7 +24,6 @@ class EditAffirmation extends Component {
         return submitAffirmationUpdate(affirmation, this.props.affirmation.id)
     }
 
-
     render() {
         return (
             <View style={styles.container}>

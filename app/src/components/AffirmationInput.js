@@ -18,7 +18,6 @@ import Affirmations from '../containers/Affirmations'
 import { submitAffirmation } from '../actions';
 
 class AffirmationInput extends Component {
-
     submitAffirmation = (text) => {
         return submitAffirmation(text)
     }
@@ -32,7 +31,7 @@ class AffirmationInput extends Component {
                             placeholder="Say Something Nice"
                             submitAction={this.submitAffirmation}
                         />
-                        < Affirmations style={{ backgroundColor: "transparent" }} />
+                        < Affirmations navigator={this.props.navigator} style={{ backgroundColor: "transparent" }} />
                     </View>
                 </ Content>
             </LinearGradient>

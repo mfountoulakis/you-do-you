@@ -30,7 +30,6 @@ class TextInput extends Component {
     }
 
     render() {
-        console.log("isEditing from text input ", this.props.isEditing)
         const isEditing = this.props.isEditing
         const submitButton = (
             <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
@@ -69,7 +68,6 @@ class TextInput extends Component {
         )
 
         return (
-
             <View>
                 {isEditing ? editingComponent : ListItemComponent}
             </View>

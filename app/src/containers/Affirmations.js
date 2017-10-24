@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
 
 const Affirmations = connect(
     mapStateToProps
-)(({ affirmations, isFetching, dispatch }) => {
+)(({ affirmations, isFetching, dispatch, navigator }) => {
     if (isFetching) {
         return (
             <View>
@@ -29,7 +29,11 @@ const Affirmations = connect(
         )
     } else {
         return (
-            <AffirmationList style={{backgroundColor: "transparent"}} affirmations={affirmations}  />
+            <AffirmationList
+                navigator={navigator}
+                style={{ backgroundColor: "transparent" }}
+                affirmations={affirmations}
+            />
         )
     }
 });

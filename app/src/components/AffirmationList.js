@@ -3,6 +3,7 @@ import { Container, Header, Content, Spinner, Row, List, Button, Icon, ListItem 
 import { connect } from 'react-redux';
 import { removeAffirmation, togglEditAffirmation } from '../actions';
 import AffirmationItemContainer from '../containers/AffirmationItemContainer';
+import DatePicker from '../components/DatePicker';
 import LinearGradient from 'react-native-linear-gradient';
 
 
@@ -44,14 +45,24 @@ class AffirmationList extends Component {
         return togglEditAffirmation(affirmation, affirmation.id)
     }
 
+    _onForward() {
+        this.navigator.push({
+            component: DatePicker
+        });
+    }
+
 
     _renderAffirmation(data) {
+        console.log("NVZ ", this.props.navigator);
+        
         return (
             < AffirmationItemContainer
+                navigator={this.props.navigator}
                 isEditing={data.isEditing}
                 affirmation={data}
                 removeAffirmation={this.removeAffirmation}
                 togglEditAffirmation={this.togglEditAffirmation}
+                _onForward={this._onForward}
             />
         )
 

@@ -31,13 +31,17 @@ class AffirmationItemContainer extends Component {
         );
     }
 
+    _onForward() {
+        this.props._onForward()
+    }
+
     componentWillReceiveProps(nextProps) {
-        console.log("received some new props ", nextProps.isEditing)
         const isEditing = nextProps.isEditing
         this.setState({
             isEditing: nextProps.isEditing
         });
     }
+
 
     render(affirmation) {
         const isEditing = this.state.isEditing
@@ -60,7 +64,7 @@ class AffirmationItemContainer extends Component {
             {
                 text: 'Button2',
                 backgroundColor: 'green',
-                onPress: () => { this._onForward(nextRoute) }
+                onPress: () => { this._onForward() }
             }
         ]
 

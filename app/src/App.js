@@ -17,7 +17,8 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Clipboard
+  Clipboard,
+  NavigatorIOS
 } from 'react-native';
 
 import FCM from "react-native-fcm";
@@ -27,15 +28,16 @@ import rootReducer from './reducers';
 // import Affirmations from './containers/Affirmations';
 import AffirmationInput from './components/AffirmationInput';
 
+import AffirmationList from './components/AffirmationList';
 
 const loggerMiddleware = createLogger();
 
 const store = createStore(
-    rootReducer,
-    applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware
-    )
+  rootReducer,
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+  )
 );
 
 export default class App extends Component {
@@ -47,10 +49,10 @@ export default class App extends Component {
       tokenCopyFeedback: ""
     }
   }
-  
+
 
   componentDidMount() {
-    store.dispatch(fetchMessages()); 
+    store.dispatch(fetchMessages());
     FCM.getInitialNotification().then(notif => {
       this.setState({
         initNotif: notif
@@ -93,10 +95,18 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
+
+          <NavigatorIOS
+            initialRoute={{
+              component: AffirmationInput,
+              title: 'My Initial Scene',
+              passProps: { index: 1 },
+            }}
+            style={{ flex: 1 }}
+          />
           <PushController
             onChangeToken={token => this.setState({ token: token || "" })}
           />
-          <AffirmationInput />
 
         </View>
       </Provider>
