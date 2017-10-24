@@ -12,15 +12,13 @@ import {
 } from 'react-native';
 
 class TextInput extends Component {
-
     state = {
-        text: null
+        text: this.props.affirmation
     }
 
     onChangeText = text => this.setState({ text: text });
 
     onSubmitEditing = () => {
-        console.log("Props from onsubmitediting ", this.props)
         this.props.dispatch(
             this.props.submitAction(this.state.text)
         );
@@ -31,9 +29,9 @@ class TextInput extends Component {
         }
     }
 
-
     render() {
-
+        console.log("isEditing from text input ", this.props.isEditing)
+        const isEditing = this.props.isEditing
         const submitButton = (
             <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
                 <Text>Submit</Text>
@@ -46,7 +44,7 @@ class TextInput extends Component {
             </Button>
         )
 
-        return (
+        const editingComponent = (
             <View style={styles.container}>
                 <Input
                     placeholder={this.props.placeholder}
@@ -54,6 +52,24 @@ class TextInput extends Component {
                     value={this.state.text}
                 />
                 {this.state.text ? submitButton : disabledSubmit}
+            </View>
+        )
+
+        const ListItemComponent = (
+            <View style={styles.container}>
+                <Input
+                    placeholder={this.props.placeholder}
+                    onChangeText={this.onChangeText}
+                    value={this.state.text}
+                />
+                {this.state.text ? submitButton : disabledSubmit}
+            </View>
+        )
+
+        return (
+
+            <View>
+                {isEditing ? editingComponent : ListItemComponent}
             </View>
         )
     }

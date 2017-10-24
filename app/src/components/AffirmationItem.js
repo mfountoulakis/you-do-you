@@ -22,9 +22,7 @@ class AffirmationItem extends Component {
     togglEditAffirmation = (affirmation) => {
         return togglEditAffirmation(affirmation, affirmation.id)
     }
-
-
-
+    
     render() {
         return(
             <AffirmationItemContainer 

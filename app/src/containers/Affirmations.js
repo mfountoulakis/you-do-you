@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Header, Content, Spinner } from 'native-base';
-import LinearGradient from 'react-native-linear-gradient';
 
 import {
     StyleSheet,
@@ -30,10 +29,7 @@ const Affirmations = connect(
         )
     } else {
         return (
-            <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']}>
-            
             <AffirmationList affirmations={affirmations}  />
-            </LinearGradient>
         )
     }
 });

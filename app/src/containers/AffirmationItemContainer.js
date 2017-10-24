@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Spinner, Row, List, Icon, ListItem } from 'native-base';
-
 import { connect } from 'react-redux';
-
 import { Input, Button } from 'native-base';
 import Swipeout from 'react-native-swipeout';
+import EditAffirmation from "./EditAffirmation"
 
 import {
     StyleSheet,
@@ -16,26 +15,32 @@ import {
 
 
 class AffirmationItemContainer extends Component {
-    togglEditAffirmation = () => {
+    state = {
+        isEditing: false
+    }
 
+    togglEditAffirmation = () => {
         this.props.dispatch(
             this.props.togglEditAffirmation(this.props.affirmation)
         );
     }
 
     removeAffirmation = () => {
-        console.log("props from affirmationitemcontainer ", this.props)
         this.props.dispatch(
             this.props.removeAffirmation(this.props.affirmation)
         );
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps){
+        console.log("received some new props ", nextProps.isEditing)
+        const isEditing = nextProps.isEditing
+        this.setState({
+            isEditing: nextProps.isEditing
+        });
     }
 
     render(affirmation) {
-        const isEditing = this.props.isEditing
-        console.log(this.props.isEditing)
+        const isEditing = this.state.isEditing
         let swipeoutBtns = [
             {
                 text: 'Edit',
@@ -61,7 +66,7 @@ class AffirmationItemContainer extends Component {
 
         const editingComponet = (
             <View style={{ flexDirection: 'row', flex: 1 }}>
-                <Text>EDITING . . .</Text>
+                <EditAffirmation isEditing={this.props.isEditing} affirmation={this.props.affirmation}/>
             </ View>
         )
 

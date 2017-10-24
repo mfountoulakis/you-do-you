@@ -37,12 +37,11 @@ class AffirmationList extends Component {
     }
 
     removeAffirmation = (affirmation) => {
-        return removeAffirmation(affirmation)
+        return removeAffirmation(affirmation, affirmation.id)
     }
 
-
     togglEditAffirmation = (affirmation) => {
-        return togglEditAffirmation(affirmation, affirmation.id)
+        return togglEditAffirmation(affirmation, affirmation.id )
     }
 
 
@@ -50,7 +49,7 @@ class AffirmationList extends Component {
         return (
             < AffirmationItemContainer
                 isEditing={data.isEditing}
-                affirmation={data.affirmation}
+                affirmation={data}
                 removeAffirmation={this.removeAffirmation}
                 togglEditAffirmation={this.togglEditAffirmation}
             />

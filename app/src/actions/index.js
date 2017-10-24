@@ -20,15 +20,39 @@ export const remove = (affirmation, id) => ({
     affirmation,
     id,
     isDeleting: true
-    
+
+});
+
+export const updateAffirmation = (affirmation, id) => ({
+    type: 'UPDATE_AFFIRMATION',
+    affirmation,
+    id,
+    isEditing: false
 });
 
 export const togglEditAffirmation = (affirmation, id) => ({
     type: 'EDIT_AFFIRMATION',
     affirmation,
     id,
-    isEditing: true    
+    isEditing: true
 });
+
+export const submitAffirmationUpdate = (affirmation, id) => {
+    return function (dispatch) {        
+        let updates = { affirmation };
+        const AffirmationsRef = firebase.database()
+            .ref(`affirmations/${id}`)
+            .update(updates)
+            .then(snapshot => {
+                return
+            }, error => {
+                alert(JSON.stringify(error.message));
+            });
+
+            dispatch(updateAffirmation(affirmation, id));
+            
+    }
+};
 
 export const removeAffirmation = (affirmation) => {
     return function (dispatch) {
