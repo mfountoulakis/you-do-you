@@ -95,19 +95,17 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-
           <NavigatorIOS
             initialRoute={{
               component: AffirmationInput,
-              title: 'My Initial Scene',
-              passProps: { index: 1 },
+              title: ''
+              // passProps: { Navigator: navigator },
             }}
             style={{ flex: 1 }}
           />
           <PushController
             onChangeToken={token => this.setState({ token: token || "" })}
           />
-
         </View>
       </Provider>
 

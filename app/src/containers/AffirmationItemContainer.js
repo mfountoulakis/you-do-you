@@ -32,7 +32,7 @@ class AffirmationItemContainer extends Component {
     }
 
     _onForward() {
-        this.props._onForward()
+        this.props._onForward(this.props.affirmation)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -62,7 +62,7 @@ class AffirmationItemContainer extends Component {
                 }
             },
             {
-                text: 'Button2',
+                text: 'Schedule',
                 backgroundColor: 'green',
                 onPress: () => { this._onForward() }
             }
