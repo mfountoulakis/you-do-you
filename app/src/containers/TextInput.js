@@ -33,19 +33,20 @@ class TextInput extends Component {
         const isEditing = this.props.isEditing
         const submitButton = (
             <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
-                <Text>Submit</Text>
+                <Text style={{color: "white"}}>Submit</Text>
             </Button>
         )
 
         const disabledSubmit = (
-            <Button block style={styles.submitButton} disabled>
-                <Text>Disabled</Text>
+            <Button bordered danger block style={styles.submitButton} >
+                <Text style={{color: "red"}}>Disabled</Text>
             </Button>
         )
 
         const editingComponent = (
             <View style={styles.container}>
                 <Input
+                    style={styles.input}
                     placeholder={this.props.placeholder}
                     placeholderTextColor="white"
                     onChangeText={this.onChangeText}
@@ -58,6 +59,7 @@ class TextInput extends Component {
         const ListItemComponent = (
             <View style={styles.container}>
                 <Input
+                    style={styles.input}
                     placeholder={this.props.placeholder}
                     placeholderTextColor="white"
                     onChangeText={this.onChangeText}
@@ -79,6 +81,9 @@ const styles = StyleSheet.create({
     container: {
         height: 90,
         marginTop: 40
+    },
+    input: {
+        color: "white"
     }
 });
 
