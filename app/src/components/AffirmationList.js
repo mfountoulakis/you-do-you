@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
         margin: 0
     },
     ListView: {
+        marginTop: 20,
         alignSelf: "stretch",
         backgroundColor: "transparent"
     },

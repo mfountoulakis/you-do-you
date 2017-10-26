@@ -44,10 +44,10 @@ class AffirmationItemContainer extends Component {
 
         const date = nextProps.affirmation.fire_date
 
-        if (nextProps.affirmation.fire_date !== null) {
+        if (nextProps.affirmation.fire_date !== undefined) {
             FCM.scheduleLocalNotification({
-                fire_date: date, 
-                id: "UNIQ_ID_STRING",       
+                fire_date: date,
+                id: "UNIQ_ID_STRING",
                 body: nextProps.affirmation.affirmation,
                 repeat_interval: "week",
                 show_in_foreground: true
@@ -59,10 +59,16 @@ class AffirmationItemContainer extends Component {
 
     render(affirmation) {
         const isEditing = this.state.isEditing
+
+        // const scheduleAffirmationBtn = (
+        //     <Button bordered danger >
+        //         <Text>Danger</Text>
+        //     </Button>
+        // )
         let swipeoutBtns = [
             {
                 text: 'Edit',
-                backgroundColor: 'yellow',
+                backgroundColor: '#F99945',
                 onPress: () => {
                     this.togglEditAffirmation();
                 }
@@ -70,24 +76,26 @@ class AffirmationItemContainer extends Component {
 
             {
                 text: 'Remove',
-                backgroundColor: 'red',
+                backgroundColor: '#F46959',
                 onPress: () => {
                     this.removeAffirmation();
                 }
             },
             {
-                text: 'Schedule',
-                backgroundColor: 'green',
+                text: "schedule",
+                backgroundColor: '#EE2A74',
                 onPress: () => { this._onForward() }
             }
         ]
+
+  
 
         const editingComponet = (
             <EditAffirmation isEditing={this.props.isEditing} affirmation={this.props.affirmation} />
         )
 
         const ListItemComponent = (
-            <Text style={{ color: "white" }}>{this.props.affirmation.affirmation}</Text>
+            <Text style={{ color: "white", fontSize: 30 }}>{this.props.affirmation.affirmation}</Text>
         )
 
         return (
@@ -108,7 +116,7 @@ const styles = StyleSheet.create({
     ListItem: {
         backgroundColor: "transparent",
         marginLeft: 0
-    }
+    },
 });
 
 

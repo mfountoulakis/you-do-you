@@ -28,6 +28,7 @@ class AffirmationInput extends Component {
                 <Content padder>
                     <View style={styles.container}>
                         <TextInput
+                            style={styles.mainInput}
                             placeholder="Say Something Nice"
                             submitAction={this.submitAffirmation}
                         />
@@ -44,6 +45,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'transparent',
         marginTop: 20
+    },
+    mainInput: {
+        fontSize: 30 
     }
 });
 

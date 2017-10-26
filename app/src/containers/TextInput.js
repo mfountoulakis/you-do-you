@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     input: {
-        color: "white"
+        color: "white",
+        fontSize: 20
     }
 });
 

@@ -48,8 +48,17 @@ class DatePickerContainer extends Component {
                         mode="time"
                         onDateChange={(date) => this.setState({ date: date })}
                     />
-
-                    <Text>{this.props.affirmation.affirmation}</Text>
+                    {/* <List style={styles.affirmationSchedule}>
+                        <ListItem>
+                            <Text style={{ color: "white" }}>{this.props.affirmation.affirmation}</Text>
+                        </ListItem>
+                        <ListItem>
+                            <Text>Nathaniel Clyne</Text>
+                        </ListItem>
+                        <ListItem>
+                            <Text>Dejan Lovren</Text>
+                        </ListItem>
+                    </List> */}
                     <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
                         <Text style={{ color: "white" }}>Submit</Text>
                     </Button>
