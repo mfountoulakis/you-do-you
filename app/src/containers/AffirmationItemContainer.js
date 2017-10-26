@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Input, Button } from 'native-base';
 import Swipeout from 'react-native-swipeout';
 import EditAffirmation from "./EditAffirmation"
+import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from 'react-native-fcm';
 
 import {
     StyleSheet,
@@ -40,8 +41,21 @@ class AffirmationItemContainer extends Component {
         this.setState({
             isEditing: nextProps.isEditing
         });
-    }
 
+        const date = nextProps.affirmation.fire_date
+
+        if (nextProps.affirmation.fire_date !== null) {
+            FCM.scheduleLocalNotification({
+                fire_date: date, 
+                id: "UNIQ_ID_STRING",       
+                body: nextProps.affirmation.affirmation,
+                repeat_interval: "week",
+                show_in_foreground: true
+            })
+        }
+
+
+    }
 
     render(affirmation) {
         const isEditing = this.state.isEditing

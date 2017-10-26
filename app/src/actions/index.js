@@ -37,8 +37,31 @@ export const togglEditAffirmation = (affirmation, id) => ({
     isEditing: true
 });
 
+export const scheduleAff = (id, fire_date) => ({
+    type: 'SCHEDULE_AFFIRMATION',
+    id,
+    fire_date
+});
+
+export const scheduleAffirmation = (id, fire_date) => {
+    return function (dispatch) {
+        let updates = { fire_date };
+        const AffirmationsRef = firebase.database()
+            .ref(`affirmations/${id}`)
+            .update(updates)
+            .then(snapshot => {
+                return
+            }, error => {
+                alert(JSON.stringify(error.message));
+            });
+
+        dispatch(scheduleAff(id, fire_date));
+
+    }
+}
+
 export const submitAffirmationUpdate = (affirmation, id) => {
-    return function (dispatch) {        
+    return function (dispatch) {
         let updates = { affirmation };
         const AffirmationsRef = firebase.database()
             .ref(`affirmations/${id}`)
@@ -49,8 +72,8 @@ export const submitAffirmationUpdate = (affirmation, id) => {
                 alert(JSON.stringify(error.message));
             });
 
-            dispatch(updateAffirmation(affirmation, id));
-            
+        dispatch(updateAffirmation(affirmation, id));
+
     }
 };
 

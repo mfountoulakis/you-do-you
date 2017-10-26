@@ -7,7 +7,8 @@ const affirmation = (state, action) => {
                 id: action.affirmation.id,
                 affirmation: action.affirmation.affirmation,
                 time: action.affirmation.time,
-                isEditing: false
+                isEditing: false,
+                fire_date: action.fire_date
             }
         default:
             return state
@@ -47,6 +48,12 @@ const affirmations = (state = [], action) => {
                     Object.assign({}, affirmation, { affirmation: action.affirmation, isEditing: false }) : affirmation
             )
 
+        case 'SCHEDULE_AFFIRMATION':
+            console.log("ACTION DATE ", action.date)
+            return state.map(affirmation =>
+                affirmation.id === action.id ?
+                    Object.assign({}, affirmation, { fire_date: action.fire_date }) : affirmation
+            )
         default:
             return state
     }

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -18,11 +19,13 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1E7BB0EE1F83F81F0068C6C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E7BB0ED1F83F81C0068C6C6 /* GoogleService-Info.plist */; };
+		1EC52A281FA1677A00DDFDEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1EC52A2A1FA18CDD00DDFDEE /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC52A291FA18CDD00DDFDEE /* Images-2.xcassets */; };
+		1EC52A2C1FA18CFF00DDFDEE /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC52A2B1FA18CFF00DDFDEE /* Images-3.xcassets */; };
 		1EFC6EC51F86BEBD00A37DBF /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		1EFC6ED31F86C27C00A37DBF /* Firebase.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB1081F83F9B00068C6C6 /* Firebase.h */; };
 		1EFC6ED41F86C27C00A37DBF /* GoogleService-Info.plist in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7BB0ED1F83F81C0068C6C6 /* GoogleService-Info.plist */; };
@@ -358,6 +361,8 @@
 		1E7BB0EF1F83F8620068C6C6 /* you_do_you.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = you_do_you.entitlements; path = you_do_you/you_do_you.entitlements; sourceTree = "<group>"; };
 		1E7BB1081F83F9B00068C6C6 /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		1E7BB1091F83F9BE0068C6C6 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		1EC52A291FA18CDD00DDFDEE /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "you_do_you/Images-2.xcassets"; sourceTree = "<group>"; };
+		1EC52A2B1FA18CFF00DDFDEE /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-3.xcassets"; path = "you_do_you/Images-3.xcassets"; sourceTree = "<group>"; };
 		1EFC6ECA1F86C22B00A37DBF /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "../../../Downloads/Firebase 2/Analytics/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
 		1EFC6ECB1F86C22B00A37DBF /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = "../../../Downloads/Firebase 2/Analytics/FirebaseNanoPB.framework"; sourceTree = "<group>"; };
 		1EFC6ECC1F86C22B00A37DBF /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = "../../../Downloads/Firebase 2/Analytics/FirebaseAnalytics.framework"; sourceTree = "<group>"; };
@@ -547,6 +552,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				1EC52A291FA18CDD00DDFDEE /* Images-2.xcassets */,
+				1EC52A2B1FA18CFF00DDFDEE /* Images-3.xcassets */,
 			);
 			name = you_do_you;
 			sourceTree = "<group>";
@@ -1153,10 +1160,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				1E7BB0EE1F83F81F0068C6C6 /* GoogleService-Info.plist in Resources */,
 				CAF372B440634DA08FF79189 /* Entypo.ttf in Resources */,
+				1EC52A281FA1677A00DDFDEE /* Images.xcassets in Resources */,
 				B6D56AEA3A694BF09BF343C7 /* EvilIcons.ttf in Resources */,
 				FB1B9F15472945AF9734D07E /* Feather.ttf in Resources */,
 				C5A997D71F624A208805C3FB /* FontAwesome.ttf in Resources */,
@@ -1168,9 +1175,11 @@
 				55B5A4656DA042E8BB476D72 /* SimpleLineIcons.ttf in Resources */,
 				CC090C7FBDBD4AEFBFED891B /* Zocial.ttf in Resources */,
 				BC5FDEB391ED4D5BBAF36E08 /* Entypo.ttf in Resources */,
+				1EC52A2C1FA18CFF00DDFDEE /* Images-3.xcassets in Resources */,
 				CBD46C76C6A34EFE9A23A3C5 /* EvilIcons.ttf in Resources */,
 				F10A04E5D1A240078378870B /* FontAwesome.ttf in Resources */,
 				6D2228709937483685778E33 /* Foundation.ttf in Resources */,
+				1EC52A2A1FA18CDD00DDFDEE /* Images-2.xcassets in Resources */,
 				B49D0A0599D2486E896A3CA5 /* Ionicons.ttf in Resources */,
 				8DE2280AA26C46C9A4018493 /* MaterialIcons.ttf in Resources */,
 				E8B199ECCD374663A27EF26A /* Octicons.ttf in Resources */,

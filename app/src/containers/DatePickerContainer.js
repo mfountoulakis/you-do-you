@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { removeAffirmation, togglEditAffirmation } from '../actions';
 import AffirmationItemContainer from '../containers/AffirmationItemContainer';
 import LinearGradient from 'react-native-linear-gradient';
-import FCM, {FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType} from 'react-native-fcm';
+import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from 'react-native-fcm';
 
 import moment from 'moment'
+import { scheduleAffirmation } from '../actions';
 
 
 import {
@@ -22,29 +23,21 @@ import {
 
 class DatePickerContainer extends Component {
 
-    
+
 
     constructor(props) {
         super(props);
         this.state = {
-            //hide datepicker initially until button is pressed
-            date: new Date(),
-            // hour: moment(this.date).format('LT'),
-            timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60
+            date: new Date()
         };
     }
 
     onSubmitEditing = () => {
-        console.log("THIS.STATE ", this.state)
-        FCM.scheduleLocalNotification({
-            fire_date: this.state.date,      //RN's converter is used, accept epoch time and whatever that converter supports
-            id: "UNIQ_ID_STRING",    //REQUIRED! this is what you use to lookup and delete notification. In android notification with same ID will override each other
-            body: `fired at ${this.state.date}`,
-            repeat_interval: "week",//day, hour
-            show_in_foreground: true
-        })
-
+        this.props.dispatch(
+            scheduleAffirmation(this.props.affirmation.id, this.state.date)
+        );
     }
+
 
     render() {
         return (
@@ -53,17 +46,12 @@ class DatePickerContainer extends Component {
                     <DatePickerIOS
                         date={this.state.date}
                         mode="time"
-                        timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-                        onDateChange={(date) => this.setState({ date: date })}                
+                        onDateChange={(date) => this.setState({ date: date })}
                     />
-                    
+
                     <Text>{this.props.affirmation.affirmation}</Text>
-                    <Button
-                        block
-                        style={styles.submitButton}
-                        onPress={() => this.onSubmitEditing()}
-                    >
-                        <Text>Submit</Text>
+                    <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
+                        <Text style={{ color: "white" }}>Submit</Text>
                     </Button>
                 </Content>
             </LinearGradient>
@@ -83,6 +71,9 @@ const styles = StyleSheet.create({
     input: {
         // flexDirection: 'row',
         // marginLeft: 0
+    },
+    submitButton: {
+        color: "white"
     }
 });
 

@@ -24,7 +24,7 @@ const Affirmations = connect(
     if (isFetching) {
         return (
             <View>
-                <Spinner />
+                <Spinner color='white'/>
             </View>
         )
     } else {

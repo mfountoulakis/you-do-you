@@ -35,7 +35,6 @@ class AffirmationInput extends Component {
                     </View>
                 </ Content>
             </LinearGradient>
-
         )
     }
 }
