@@ -88,8 +88,6 @@ class AffirmationItemContainer extends Component {
             }
         ]
 
-  
-
         const editingComponet = (
             <EditAffirmation isEditing={this.props.isEditing} affirmation={this.props.affirmation} />
         )

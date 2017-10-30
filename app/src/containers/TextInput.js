@@ -33,13 +33,13 @@ class TextInput extends Component {
         const isEditing = this.props.isEditing
         const submitButton = (
             <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
-                <Text style={{color: "white"}}>Submit</Text>
+                <Text style={{ color: "white" }}>Submit</Text>
             </Button>
         )
 
         const disabledSubmit = (
             <Button bordered danger block style={styles.submitButton} >
-                <Text style={{color: "red"}}>Disabled</Text>
+                <Text style={{ color: "red" }}>Disabled</Text>
             </Button>
         )
 

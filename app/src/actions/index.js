@@ -90,7 +90,6 @@ export const removeAffirmation = (affirmation) => {
                 alert(JSON.stringify(error.message));
             });
 
-
     }
 }
 

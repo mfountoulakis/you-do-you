@@ -27,8 +27,8 @@ import logger from 'redux-logger'
 import rootReducer from './reducers';
 // import Affirmations from './containers/Affirmations';
 import AffirmationInput from './components/AffirmationInput';
-
 import AffirmationList from './components/AffirmationList';
+import Signup from './components/Signup';
 
 const loggerMiddleware = createLogger();
 
@@ -97,7 +97,7 @@ export default class App extends Component {
         <View style={styles.container}>
           <NavigatorIOS
             initialRoute={{
-              component: AffirmationInput,
+              component: Signup,
               title: ''
               // passProps: { Navigator: navigator },
             }}
