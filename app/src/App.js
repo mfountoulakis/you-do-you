@@ -46,7 +46,10 @@ export default class App extends Component {
 
     this.state = {
       token: "",
-      tokenCopyFeedback: ""
+      tokenCopyFeedback: "",
+      authorized: false,
+      authorizing: false
+
     }
   }
 
@@ -98,8 +101,8 @@ export default class App extends Component {
           <NavigatorIOS
             initialRoute={{
               component: Signup,
-              title: ''
-              // passProps: { Navigator: navigator },
+              title: '',
+              passProps: { username: this.props.username, authorizing:this.props.authorizing, authorized: this.props.authorized },
             }}
             style={{ flex: 1 }}
           />
