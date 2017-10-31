@@ -18,6 +18,7 @@ export const addAffirmation = (affirmation) => ({
 export const remove = (affirmation, id) => ({
     type: 'REMOVE_AFFIRMATION',
     affirmation,
+    uid,
     id,
     isDeleting: true
 
@@ -42,6 +43,30 @@ export const scheduleAff = (id, fire_date) => ({
     id,
     fire_date
 });
+
+export const userAuthorized = () => ({
+    type: 'USER_AUTHORIZED'
+});
+
+export const userAuthorising = () => ({
+    type: 'USER_AUTHORIZED'
+});
+
+
+export const signUp = (username, password) => {
+    return (dispatch) => {
+        dispatch(userAuthorising());
+
+        firebase.auth().createUserWithEmailAndPassword(username, password).then((user) => {
+            dispatch(userAuthorized());
+        }, error => {
+            console.log(JSON.stringify(error.message));
+        });
+
+    }
+}
+
+
 
 export const scheduleAffirmation = (id, fire_date) => {
     return function (dispatch) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, Spinner, Row, List, Icon, ListItem } from 'native-base';
-import { Input, Button } from 'native-base';
-import SignupContainer from '../containers/SignupContainer';
+import { Container, Spinner, Button, Header, Content, Form, Item, Label, Input } from 'native-base';
+import SignupInput from '../containers/SignupInput';
 
 import {
     StyleSheet,
@@ -13,22 +12,31 @@ import {
 } from 'react-native';
 
 class Signup extends Component {
-
     render() {
         return (
-            <View style={styles.container}>
-                <SignupContainer/>
-            </View>
+            <Container>
+                <Header />
+                <Content>
+                    <Form>
+                        <Item floatingLabel>
+                            <Label>Username</Label>
+                            <Input />
+                        </Item>
+                        <SignupInput />
+                    </Form>
+                </Content>
+            </Container>
         )
     }
 }
 
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 0
+        alignSelf: 'stretch',
+        justifyContent: 'center'
     }
 });
 
