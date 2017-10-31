@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Spinner, Button, Header, Content, Form, Item, Label, Input } from 'native-base';
-import SignupInput from '../containers/SignupInput';
+import SignupForm from '../containers/SignupForm';
+import { AffirmationList } from '../components/AffirmationList';
+
+import { signUp } from '../actions';
 
 import {
     StyleSheet,
@@ -11,19 +14,20 @@ import {
     TextInput
 } from 'react-native';
 
+
 class Signup extends Component {
+    t = (username, password) => {
+        return signUp(username, password);
+
+    }
     render() {
         return (
             <Container>
                 <Header />
                 <Content>
-                    <Form>
-                        <Item floatingLabel>
-                            <Label>Username</Label>
-                            <Input />
-                        </Item>
-                        <SignupInput />
-                    </Form>
+                    <SignupForm
+                        submitAction={this.t}
+                    />
                 </Content>
             </Container>
         )

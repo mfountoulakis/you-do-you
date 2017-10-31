@@ -44,21 +44,23 @@ export const scheduleAff = (id, fire_date) => ({
     fire_date
 });
 
-export const userAuthorized = () => ({
-    type: 'USER_AUTHORIZED'
+export const userAuthorized = (username) => ({
+    type: 'USER_AUTHORIZED',
+    username
+    
 });
 
-export const userAuthorising = () => ({
-    type: 'USER_AUTHORIZED'
+export const userAuthorizing = (username) => ({
+    type: 'USER_AUTHORIZING',
+    username
 });
 
 
 export const signUp = (username, password) => {
     return (dispatch) => {
-        dispatch(userAuthorising());
-
+        dispatch(userAuthorizing());
         firebase.auth().createUserWithEmailAndPassword(username, password).then((user) => {
-            dispatch(userAuthorized());
+            dispatch(userAuthorized(username));
         }, error => {
             console.log(JSON.stringify(error.message));
         });
