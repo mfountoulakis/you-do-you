@@ -38,5 +38,6 @@ const Affirmations = connect(
     }
 });
 
+
 export default Affirmations;
 

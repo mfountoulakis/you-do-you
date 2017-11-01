@@ -18,7 +18,6 @@ export const addAffirmation = (affirmation) => ({
 export const remove = (affirmation, id) => ({
     type: 'REMOVE_AFFIRMATION',
     affirmation,
-    uid,
     id,
     isDeleting: true
 

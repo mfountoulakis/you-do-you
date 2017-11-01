@@ -39,7 +39,6 @@ class Signup extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignSelf: 'stretch',
         justifyContent: 'center'
     }
 });

@@ -42,9 +42,9 @@ class AffirmationInput extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 9,
         backgroundColor: 'transparent',
-        marginTop: 20
+        marginTop: 20,
     },
     mainInput: {
         fontSize: 30 

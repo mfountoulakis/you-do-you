@@ -11,7 +11,8 @@ import {
     TextInput
 } from 'react-native';
 import { signUp } from '../actions';
-import AffirmationList from '../components/AffirmationList';
+import AffirmationInput from '../components/AffirmationInput';
+import Affirmations from './Affirmations';
 
 class SignupForm extends Component {
     state = {
@@ -48,10 +49,11 @@ class SignupForm extends Component {
         if (authorized) {
             return (
                 <View style={styles.container}>
-                    <Text>AUTHORIZED</Text>
+                <AffirmationInput />
                 </View>
             )
-        } else if (authorizing) {
+        } 
+        else if (authorizing) {
             return (
                 <View style={styles.container}>
                     <Spinner color='blue' />
