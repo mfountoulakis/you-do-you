@@ -49,10 +49,10 @@ class SignupForm extends Component {
         if (authorized) {
             return (
                 <View style={styles.container}>
-                <AffirmationInput />
+                    <AffirmationInput />
                 </View>
             )
-        } 
+        }
         else if (authorizing) {
             return (
                 <View style={styles.container}>

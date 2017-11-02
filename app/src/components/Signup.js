@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Spinner, Button, Header, Content, Form, Item, Label, Input } from 'native-base';
 import SignupForm from '../containers/SignupForm';
 import { AffirmationList } from '../components/AffirmationList';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { signUp } from '../actions';
 
@@ -22,14 +23,16 @@ class Signup extends Component {
     }
     render() {
         return (
-            <Container>
-                <Header />
-                <Content>
-                    <SignupForm
-                        submitAction={this.t}
-                    />
-                </Content>
-            </Container>
+            <LinearGradient colors={['#aa4cf9', '#9785f4', '#91adc5']} style={styles.container}>
+                <Container>
+                    <Header />
+                    <Content padder>
+                        <SignupForm
+                            submitAction={this.t}
+                        />
+                    </Content>
+                </Container>
+            </LinearGradient>
         )
     }
 }
