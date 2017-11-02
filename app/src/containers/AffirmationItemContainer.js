@@ -59,12 +59,6 @@ class AffirmationItemContainer extends Component {
 
     render(affirmation) {
         const isEditing = this.state.isEditing
-
-        // const scheduleAffirmationBtn = (
-        //     <Button bordered danger >
-        //         <Text>Danger</Text>
-        //     </Button>
-        // )
         let swipeoutBtns = [
             {
                 text: 'Edit',

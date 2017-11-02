@@ -28,6 +28,7 @@ class Signup extends Component {
                     <Header />
                     <Content padder>
                         <SignupForm
+                            navigator={this.props.navigator}
                             submitAction={this.t}
                         />
                     </Content>

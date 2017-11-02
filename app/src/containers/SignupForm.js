@@ -49,7 +49,8 @@ class SignupForm extends Component {
         if (authorized) {
             return (
                 <View style={styles.container}>
-                    <AffirmationInput />
+                    <AffirmationInput navigator={this.props.navigator}
+                    />
                 </View>
             )
         }
