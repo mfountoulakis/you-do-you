@@ -66,14 +66,16 @@ class SignupForm extends Component {
             return (
                 <Form>
                     <Item floatingLabel>
-                        <Label>Username</Label>
+                        <Label style={{color: "white"}}>Username</Label>
                         <Input
+                            style={{color: 'white'}}
                             onChangeText={this.changeUsername}
                         />
                     </Item>
                     <Item floatingLabel last>
-                        <Label>Password</Label>
+                        <Label style={{color: "white"}}>Password</Label>
                         <Input
+                            style={{color: 'white'}}
                             onChangeText={this.changePassword}
                             secureTextEntry
                             autoCapitalize="none"
@@ -81,7 +83,7 @@ class SignupForm extends Component {
                             blurOnSubmit
                         />
                     </Item>
-                    <Button light block onPress={() => this.onSubmitEditing()}>
+                    <Button style={{marginTop: 40}} light block onPress={() => this.onSubmitEditing()}>
                         <Text>Sign Up</Text>
                     </Button>
 
