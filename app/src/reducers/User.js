@@ -13,10 +13,16 @@ const User = (state = initialState, action) => {
             });
         case 'USER_AUTHORIZED':
             return Object.assign({}, state, {
-                username: action.username,                
+                username: action.username,
                 authorizing: false,
                 authorized: true
             });
+        case 'SIGNUP_ERROR':
+            return Object.assign({}, state, {
+                authorizing: false,
+                error: action.error
+            });
+
         default:
             return state
     }

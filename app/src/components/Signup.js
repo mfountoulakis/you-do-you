@@ -17,7 +17,7 @@ import {
 
 
 class Signup extends Component {
-    t = (username, password) => {
+    sign_up = (username, password) => {
         return signUp(username, password);
 
     }
@@ -29,7 +29,7 @@ class Signup extends Component {
                     <Content padder>
                         <SignupForm
                             navigator={this.props.navigator}
-                            submitAction={this.t}
+                            submitAction={this.sign_up}
                         />
                     </Content>
                 </Container>

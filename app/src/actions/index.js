@@ -54,6 +54,10 @@ export const userAuthorizing = (username) => ({
     username
 });
 
+export const signUpError = (error) => ({
+    type: 'SIGNUP_ERROR',
+    error
+});
 
 export const signUp = (username, password) => {
     return (dispatch) => {
@@ -61,6 +65,8 @@ export const signUp = (username, password) => {
         firebase.auth().createUserWithEmailAndPassword(username, password).then((user) => {
             dispatch(userAuthorized(username));
         }, error => {
+            console.log("ERRORMESSAGE ", error.message)
+            dispatch(signUpError(error.message));
             console.log(JSON.stringify(error.message));
         });
 
@@ -140,7 +146,6 @@ export const submitAffirmation = (text) => {
 export const fetchMessages = () => {
     return function (dispatch) {
         dispatch(startFetchingMessages());
-
         firebase.database()
             .ref('affirmations')
             .on('value', (snapshot) => {

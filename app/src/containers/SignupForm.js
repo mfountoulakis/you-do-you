@@ -45,6 +45,7 @@ class SignupForm extends Component {
 
         let authorized = this.props.authorized
         let authorizing = this.props.authorizing
+        let error = this.props.error
 
         if (authorized) {
             return (
@@ -80,9 +81,15 @@ class SignupForm extends Component {
                             blurOnSubmit
                         />
                     </Item>
-                    <Button block onPress={() => this.onSubmitEditing()}>
+                    <Button light block onPress={() => this.onSubmitEditing()}>
+                        <Text>Sign Up</Text>
                     </Button>
+
+                    <Text style={styles.Error}>{error}</Text>
+
                 </Form>
+
+                
 
             )
         }
@@ -94,6 +101,16 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: 'stretch',
         justifyContent: 'center'
+    },
+    inputPlaceholder: {
+        color: 'white'
+    },
+    Error:{
+        textAlign: 'center',
+        fontSize: 20,
+        color: 'red',
+        marginTop: 30
+
     }
 });
 
@@ -101,9 +118,11 @@ const mapStateToProps = (state) => {
     return {
         username: state.User.username,
         authorized: state.User.authorized,
-        authorizing: state.User.authorizing
+        authorizing: state.User.authorizing,
+        error: state.User.error
 
     }
 }
+
 
 export default connect(mapStateToProps)(SignupForm);

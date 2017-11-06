@@ -24,16 +24,14 @@ class AffirmationInput extends Component {
 
     render() {
         return (
-            <Content padder>
                 <View>
                     <TextInput
                         style={styles.mainInput}
-                        placeholder="Say Something Nice"
+                        placeholder="Say Something Nice..."
                         submitAction={this.submitAffirmation}
                     />
                     < Affirmations navigator={this.props.navigator} style={{ backgroundColor: "transparent" }} />
                 </View>
-            </ Content>
         )
     }
 }
