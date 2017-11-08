@@ -9,8 +9,10 @@ import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import configureStore from './store/configureStore';
 import { createStore, applyMiddleware } from 'redux';
 import { fetchMessages } from './actions';
+import { PersistGate } from 'redux-persist/es/integration/react';
 
 import {
   StyleSheet,
@@ -30,15 +32,11 @@ import AffirmationInput from './components/AffirmationInput';
 import AffirmationList from './components/AffirmationList';
 import Signup from './components/Signup';
 
-const loggerMiddleware = createLogger();
+const { persistor, store } = configureStore()
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
-  )
-);
+const onBeforeLift = () => {
+ console.log("BEFORE LIFT")
+}
 
 export default class App extends Component {
   constructor(props) {
@@ -97,21 +95,25 @@ export default class App extends Component {
 
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <NavigatorIOS
-            initialRoute={{
-              component: Signup,
-              title: 'Welcome',
-              passProps: { username: this.props.username, authorizing:this.props.authorizing, authorized: this.props.authorized },
-            }}
-            style={{ flex: 1 }}
-          />
-          <PushController
-            onChangeToken={token => this.setState({ token: token || "" })}
-          />
-        </View>
-      </Provider>
 
+        <PersistGate
+          onBeforeLift={onBeforeLift}
+          persistor={persistor}>
+          <View style={styles.container}>
+            <NavigatorIOS
+              initialRoute={{
+                component: Signup,
+                title: 'Welcome',
+                passProps: { username: this.props.username, authorizing: this.props.authorizing, authorized: this.props.authorized },
+              }}
+              style={{ flex: 1 }}
+            />
+            <PushController
+              onChangeToken={token => this.setState({ token: token || "" })}
+            />
+          </View>
+        </PersistGate>
+      </Provider>
     );
   }
 }
