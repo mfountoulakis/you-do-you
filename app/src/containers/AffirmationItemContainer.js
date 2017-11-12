@@ -69,16 +69,19 @@ class AffirmationItemContainer extends Component {
             },
 
             {
-                text: 'Remove',
+                text: "Schedule",
                 backgroundColor: '#F46959',
                 onPress: () => {
-                    this.removeAffirmation();
+                    this._onForward()
                 }
+
             },
             {
-                text: "schedule",
+                text: "Remove",
                 backgroundColor: '#EE2A74',
-                onPress: () => { this._onForward() }
+                onPress: () => {
+                    this.removeAffirmation();
+                },            
             }
         ]
 

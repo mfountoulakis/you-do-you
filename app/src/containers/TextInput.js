@@ -31,11 +31,25 @@ class TextInput extends Component {
 
     render() {
         const isEditing = this.props.isEditing
-        const submitButton = (
-            <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
-                <Text style={{ color: "white" }}>Submit</Text>
-            </Button>
-        )
+        submitButton = () => {
+            if (this.state.text && isEditing) {
+                return (
+                    <View>
+                        <Button bordered light style={styles.submitButtonEditing} onPress={() => this.onSubmitEditing()}>
+                            <Text style={{ color: "white" }}>Submit</Text>
+                        </Button>
+                    </View>
+                )
+            } else {
+                return (
+                    <View>
+                        <Button bordered light block style={styles.submitButton} onPress={() => this.onSubmitEditing()}>
+                            <Text style={{ color: "white" }}>Submit</Text>
+                        </Button>
+                    </View>
+                )
+            }
+        }
 
         const disabledSubmit = (
             <Button bordered danger block style={styles.submitButton} >
@@ -44,7 +58,7 @@ class TextInput extends Component {
         )
 
         const editingComponent = (
-            <View style={styles.container}>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
                 <Input
                     style={styles.input}
                     placeholder={this.props.placeholder}
@@ -52,7 +66,7 @@ class TextInput extends Component {
                     onChangeText={this.onChangeText}
                     value={this.state.text}
                 />
-                {this.state.text ? submitButton : disabledSubmit}
+                {submitButton()}
             </View>
         )
 
@@ -65,7 +79,7 @@ class TextInput extends Component {
                     onChangeText={this.onChangeText}
                     value={this.state.text}
                 />
-                {this.state.text ? submitButton : disabledSubmit}
+                {submitButton()}
             </View>
         )
 
@@ -84,7 +98,11 @@ const styles = StyleSheet.create({
     },
     input: {
         color: "white",
-        fontSize: 20
+        fontSize: 20,
+        flexDirection: 'row'
+    },
+    submitButtonEditing: {
+        padding: 10
     }
 });
 
