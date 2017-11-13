@@ -1,7 +1,7 @@
 ## You Do You
 A simple project demonstrating the use of firebase with react-native and redux.
 
-![](https://media.giphy.com/media/l2QDXkSiGsVrJw7WE/giphy.gif)
+![](https://media.giphy.com/media/xUOxfm0LNsATf4WNgc/giphy.gif)
 
 
 ## Installation
